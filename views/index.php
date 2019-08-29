@@ -8,7 +8,16 @@
     <?php } ?>
 <?php } ?>
 
-<table class="table table-striped">
+<div class="form-group">
+    <div class="form-group row">
+        <label for="name" class="col-md-1 col-form-label">Filter cities:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="filterInput" onkeyup="filterCities()" placeholder="Filter cities.." autocomplete="off">
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" id="userTable">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -25,7 +34,7 @@
 		</tr>
 		<?}?>
 	</tbody>
-</table>				
+</table>
 
 <form method="post" action="create.php">
     <div class="form-group required row">
