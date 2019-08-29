@@ -69,6 +69,12 @@ if($valid) {
             'type' => 'success',
             'text' => "User was successfully added.",
     ];
+
+    $name = mysqli_real_escape_string($app->db->mysqli, $name);
+    $email = mysqli_real_escape_string($app->db->mysqli, $email);
+    $city = mysqli_real_escape_string($app->db->mysqli, $city);
+    $phone = mysqli_real_escape_string($app->db->mysqli, $phone);
+
     $user = new User($app->db);
     $user->insert([
         'name' => $name,

@@ -25,10 +25,11 @@
 	<tbody>
 		<?foreach($users as $user){?>
 		<tr>
-			<td><?=$user->getName()?></td>
-			<td><?=$user->getEmail()?></td>
-			<td><?=$user->getCity()?></td>
-		</tr>
+			<td><?=htmlspecialchars($user->getName())?></td>
+			<td><?=htmlspecialchars($user->getEmail())?></td>
+			<td><?=htmlspecialchars($user->getCity())?></td>
+            <td><?=htmlspecialchars($user->getPhone())?></td>
+        </tr>
 		<?}?>
 	</tbody>
 </table>
