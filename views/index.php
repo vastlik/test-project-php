@@ -19,7 +19,8 @@
 			<th>Name</th>
 			<th>E-mail</th>
 			<th>City</th>
-		</tr>
+            <th>Phone</th>
+        </tr>
 	</thead>
 	<tbody>
 		<?foreach($users as $user){?>
@@ -53,6 +54,14 @@
             <input name="city" class="form-control" type="text" id="city" required/>
         </div>
     </div>
+
+    <div class="form-group row">
+        <label for="city" class="col-sm-1 col-form-label control-label">Phone:</label>
+        <div class="col-sm-4">
+            <input name="phone" class="form-control" type="text" id="phone"/>
+        </div>
+    </div>
+
     <div class="form-group row">
         <div class="col-sm-4">
             Fields with * are required.
@@ -76,7 +85,7 @@
             success: function(data)
             {
                 if(data.status === "OK") {
-                    var newElement = "<tr><td>" + $("#name").val() + "</td><td>" + $("#email").val() + "</td><td>" + $("#city").val() + "</td></tr>";
+                    var newElement = "<tr><td>" + data.user.name + "</td><td>" + data.user.email + "</td><td>" + data.user.city + "</td><td>" + data.user.phone + "</td></tr>";
                     $('#userTable').append(newElement);
                 }
 

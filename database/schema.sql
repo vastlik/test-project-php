@@ -46,6 +46,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `city`, `created_at`) VALUES
 (4, 'Peter', 'peter@mail.test', 'Brno', '2013-09-19 22:21:17'),
 (5, 'Jon', 'jon@mail.test', 'New York', '2013-09-19 22:21:41');
 
+ALTER TABLE `users` ADD `phone` VARCHAR(32) NULL DEFAULT NULL AFTER `city`;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

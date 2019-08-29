@@ -3,7 +3,7 @@
 /**
  * User model
  */
-class User extends BaseModel{
+class User extends BaseModel {
 	
 	// Define neccessary constansts so we know from which table to load data
 	const tableName = 'users';
@@ -23,5 +23,13 @@ class User extends BaseModel{
 	public function getCity() {
 		return $this->getField('city');
 	}
+
+    public function getPhone() {
+        return $this->getField('phone');
+    }
+
+    public static function findAllOrderedByCreatedAt($db) {
+        return self::find($db,'*', [], ['created_at' => 'ASC']);
+    }
 	
 }

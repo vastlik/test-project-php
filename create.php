@@ -35,6 +35,7 @@ if($_SERVER["REQUEST_METHOD"] != "POST") {
 $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $city = trim($_POST['city']);
+$phone = trim($_POST['phone']);
 
 $flashMessages = [];
 $valid = true;
@@ -69,17 +70,19 @@ if($valid) {
             'text' => "User was successfully added.",
     ];
     $user = new User($app->db);
-    $user->insert(array(
+    $user->insert([
         'name' => $name,
         'email' => $email,
         'city' => $city,
-    ));
+        'phone' => $phone
+    ]);
 }
 
 $user = [
     'name' => $name,
     'email' => $email,
     'city' => $city,
+    'phone' => $phone
 ];
 
 $response = [
