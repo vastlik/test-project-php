@@ -76,8 +76,17 @@ if($valid) {
     ));
 }
 
-$users = User::find($app->db, '*');
-$app->renderView('index', array(
-    'users' => $users,
-    'flashMessages' => $flashMessages,
-));
+$user = [
+    'name' => $name,
+    'email' => $email,
+    'city' => $city,
+];
+
+$response = [
+    'status' => $valid ? 'OK' : 'Error',
+    'user' => $user,
+    'flash_messages' => $flashMessages,
+];
+
+header('Content-Type: application/json');
+echo json_encode($response);

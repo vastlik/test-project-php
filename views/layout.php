@@ -23,6 +23,6 @@
     <?= $content ?>
     
   </div>
-  
+
   </body>
 </html>

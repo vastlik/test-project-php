@@ -1,12 +1,8 @@
 <h1>PHP Test Application</h1>
 
-<? if(isset($flashMessages)) { ?>
-    <? foreach ($flashMessages as $message) { ?>
-        <div class="alert alert-<?= $message['type'] ?>" role="alert">
-            <?= $message['text'] ?>
-        </div>
-    <?php } ?>
-<?php } ?>
+
+<div id="flash-messages">
+</div>
 
 <div class="form-group">
     <div class="form-group row">
@@ -36,7 +32,7 @@
 	</tbody>
 </table>
 
-<form method="post" action="create.php">
+<form method="post" action="create.php" id="userForm">
     <div class="form-group required row">
         <label for="name" class="col-sm-1 col-form-label control-label">Name:</label>
         <div class="col-sm-4">
@@ -64,3 +60,36 @@
     </div>
 	<button class="btn btn-primary">Create new row</button>
 </form>
+
+<script type="text/javascript">
+    $("#userForm").submit(function(e) {
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this);
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data)
+            {
+                if(data.status === "OK") {
+                    var newElement = "<tr><td>" + $("#name").val() + "</td><td>" + $("#email").val() + "</td><td>" + $("#city").val() + "</td></tr>";
+                    $('#userTable').append(newElement);
+                }
+
+                var flash_messages = $("#flash-messages");
+                flash_messages.html("");
+                for(var i = 0; i < data.flash_messages.length; ++i) {
+                    let current = data.flash_messages[i];
+                    let message = '<div class="alert alert-'+ current.type + '" role="alert">' + current.text + '</div>';
+                    flash_messages.append(message);
+                }
+            }
+        });
+
+
+    });
+</script>
