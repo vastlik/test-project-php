@@ -20,15 +20,25 @@
 </table>				
 
 <form method="post" action="create.php">
-	
-	<label for="name">Name:</label>
-	<input name="name" input="text" id="name"/>
-	
-	<label for="email">E-mail:</label>
-	<input name="email" input="text" id="email"/>
-	
-	<label for="city">City:</label>
-	<input name="city" input="text" id="city"/>
-	
-	<button>Create new row</button>
+    <div class="form-group row">
+        <label for="name" class="col-sm-1 col-form-label">Name:</label>
+        <div class="col-sm-4">
+            <input name="name" class="form-control" input="text" id="name"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="email" class="col-sm-1 col-form-label">E-mail:</label>
+        <div class="col-sm-4">
+            <input name="email" class="form-control" input="text" id="email"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="city" class="col-sm-1 col-form-label">City:</label>
+        <div class="col-sm-4">
+            <input name="city" class="form-control" input="text" id="city"/>
+        </div>
+    </div>
+	<button class="btn btn-primary">Create new row</button>
 </form>
