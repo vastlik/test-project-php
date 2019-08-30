@@ -85,10 +85,10 @@ if($valid) {
 }
 
 $user = [
-    'name' => $name,
-    'email' => $email,
-    'city' => $city,
-    'phone' => $phone
+    'name' => htmlspecialchars($name),
+    'email' => htmlspecialchars($email),
+    'city' => htmlspecialchars($city),
+    'phone' => htmlspecialchars($phone)
 ];
 
 $response = [
